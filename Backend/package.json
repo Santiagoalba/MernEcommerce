@@ -1,0 +1,42 @@
+{
+  "name": "reactecommerce",
+  "version": "1.0.0",
+  "description": "Mern Ecommerce proyect.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Santiagoalba/MernEcommerce.git"
+  },
+  "keywords": [
+    "Mern",
+    "ecommerce",
+    "react",
+    "js",
+    "javascript",
+    "css",
+    "scss",
+    "html",
+    "jquery",
+    "backend",
+    "frontend."
+  ],
+  "author": "Santiago Albarracin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Santiagoalba/MernEcommerce/issues"
+  },
+  "homepage": "https://github.com/Santiagoalba/MernEcommerce#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.6.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.13",
+    "nodemon": "^2.0.6",
+    "slugify": "^1.4.6"
+  }
+}
