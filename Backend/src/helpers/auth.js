@@ -8,14 +8,15 @@ helpers.authenticated = (req, res, next) => {
         const token = req.headers.authorization.split(" ")[1];
         const user = jwt.verify(token, process.env.JWT_SECRET);
         req.user = user;
-        next();
+    } else {
+        return res.status(400).json({ message: 'Authentication required.'});
     }
-    return res.status(400).json({ message: 'Authentication required.'});
 
+    next();
 }
 
 helpers.isAdmin = (req, res, next) => {
-    console.log(req.user.role);
+    console.log(req.user);
     if(req.user.role !== 'admin'){
         return res.status(400).json({ message: 'Access denied' });
     }

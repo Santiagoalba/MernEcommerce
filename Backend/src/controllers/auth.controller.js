@@ -59,7 +59,6 @@ authCtrl.signIn = (req, res) => {
         if(user){
 
             if(user.authenticate(req.body.password)){
-                const token = jwt.sign({_id: user._id, role: user.role}, process.env.JWT_SECRET, {expiresIn: '1h'});
                 const { _id, firstName, lastName, email, role, fullName } = user;
                 res.status(200).json({
                     token,
@@ -67,6 +66,7 @@ authCtrl.signIn = (req, res) => {
                         _id, firstName, lastName, email, role, fullName
                     }
                 });
+                const token = jwt.sign({_id: user._id}, process.env.JWT_SECRET, {expiresIn: '1h'});
             } else {
                 return res.status(400).json({
                     message: 'Invalid Password'

@@ -53,11 +53,12 @@ adminAuthCtrl.signIn = (req, res) => {
     .exec((error, user) => {
         if(error) return res.status(400).json({error})
         if(user){
+            console.log(user.role, "sasadsdas");
 
             if(user.authenticate(req.body.password) && user.role === "admin") {
                 // Si el usuario se autentica creamos un token
                 // Primer param ID del usuario , segundo param secreto, tercer param tiempo de expiracion 
-                const token = jwt.sign({_id: user._id}, process.env.JWT_SECRET, {expiresIn: '1h'});
+                const token = jwt.sign({_id: user._id, role: user.role}, process.env.JWT_SECRET, {expiresIn: '1h'});
                 const { _id, firstName, lastName, email, role, fullName } = user;
                 res.status(200).json({
                     token,
