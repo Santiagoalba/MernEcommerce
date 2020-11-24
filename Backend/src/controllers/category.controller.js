@@ -3,10 +3,14 @@ const Category = require('../models/category');
 const slugify = require('slugify');
 
 categoryCtrl.create = (req, res) => {
-
+    
     const categoryObj = {
         name: req.body.name,
         slug: slugify(req.body.name)
+    }
+    
+    if(req.file){
+        categoryObj.categoryImage = 'https://localhost:8888/public/' + req.file.filename;
     }
 
     if(req.body.parentId){

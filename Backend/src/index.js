@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const env = require('dotenv');
+const path = require('path');
 
 
 // Enviroment variables
@@ -10,6 +11,8 @@ env.config();
 require('./database');
 
 app.use(express.json());
+
+app.use('public', express.static(path.join(__dirname, 'uploads')));
 
 // Utilizo modulos de rutas
 app.use(require('./routes/auth.routes'));
