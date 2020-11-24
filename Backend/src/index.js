@@ -15,6 +15,8 @@ app.use(express.json());
 app.use(require('./routes/auth.routes'));
 app.use(require('./routes/adminAuth.routes'));
 app.use(require('./routes/category.routes'));
+app.use(require('./routes/product.routes'));
+app.use(require('./routes/cart.routes'));
 
 
 app.listen(process.env.PORT, () => {
